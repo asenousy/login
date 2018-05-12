@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import changeLoginStatusAction from '../../actions/changeLoginStatusAction'
-import { withRouter } from 'react-router'
+// import { withRouter } from 'react-router'
 
 
-class NavBar extends React.Component {
+export class NavBar extends React.Component {
     logInOut() {
         if (this.props.isLoggedIn) {
             return <a className="nav-item nav-link"
@@ -51,4 +51,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar))
+// export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar))
