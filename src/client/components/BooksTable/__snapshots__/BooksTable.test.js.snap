@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders table correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th
+        scope="col"
+      >
+        Book Name
+      </th>
+      <th
+        scope="col"
+      >
+        Author Name
+      </th>
+      <th
+        scope="col"
+      >
+        Publisher Name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        title
+      </td>
+      <td>
+        author
+      </td>
+      <td>
+        publisher
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
