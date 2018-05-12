@@ -12,16 +12,16 @@
 
 The consists of homepage, contact, login and profile page
 
-the profile page is protected so user needs to be logged in first before viewing it otherwise you will be redirected to login page, the login page request a backend auth endpoint for login which returns a jwt token, then user will be able to access profile page, and a reading preference that displays in a table list of books, which it fetches by a protected api that verifies token first, otherwise if token is expired for example then you will be redirected to login again
+The profile page is protected so user needs to be logged in first before viewing it otherwise you will be redirected to login page, the login page request a backend auth endpoint for login which returns a jwt token, then user will be able to access profile page, and a reading preference that displays in a table list of books, which it fetches by a protected api that verifies token first, otherwise if token is expired for example then you will be redirected to login again
 
 ## Technologies used:
 
-* react was used as a front end framework
-* react router was used for front end routing
-* redux was used for state mangament to keep track if user is logged in or not
+* React was used as a front end framework
+* React-Router was used for front end routing
+* Redux was used for state mangament to keep track if user is logged in or not
 * Bootstrap for styling
-* webpack to bundle react app
-* babel to transpile to pre es6 js
+* Webpack to bundle react app
+* Babel to transpile to pre es6 js
 * Eslint for linting
 * Express was used for backend api endpoints and serve bundled react app file
 
