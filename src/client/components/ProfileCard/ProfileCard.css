@@ -4,9 +4,6 @@
     margin-top: 10px;
 }
 .wrapper {
-    max-width: 260px;
+    max-width: 350px;
     margin: auto;
-}
-.login {
-    margin: 20px;
 }

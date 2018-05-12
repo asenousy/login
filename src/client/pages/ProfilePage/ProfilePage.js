@@ -39,7 +39,7 @@ class ProfilePage extends React.Component {
       <div styleName='card'>
         <h1>My User Details</h1>
         <ProfileCard />
-        <button className='btn btn-primary' onClick={this.getReadingList} > Reading Preferences </button>
+        <button styleName='button' className='btn btn-primary' onClick={this.getReadingList} > Reading Preferences </button>
         <div styleName='books'>
           <BooksTable maxRows={5} bookList={bookList} />
         </div>

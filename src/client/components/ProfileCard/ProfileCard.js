@@ -1,7 +1,8 @@
 import React from 'react'
 import jwt from 'jsonwebtoken'
+import './ProfileCard.css'
 
-class LoginCard extends React.Component {
+class ProfileCard extends React.Component {
     constructor(props) {
         super(props)
         this.profile = jwt.decode(localStorage.token)
@@ -14,17 +15,21 @@ class LoginCard extends React.Component {
             email: 'Email ID'
         }
 
-        return Object.keys(this.profile)
+        const details = Object.keys(this.profile)
             .filter(detail => detail !== 'iat' && detail !== 'exp')
             .map((detail, index) => {
                 return (
-                    <div key={detail + index}>
-                        <label> {keyMap[detail] || detail}   : </label>
+                    <div key={detail + index} styleName='container'>
+                        <label> {keyMap[detail] || detail} : </label>
                         <input type="text" value={this.profile[detail]} readOnly />
                     </div>
                 )
             })
+
+        return <div styleName='wrapper'>
+            {details}
+        </div>
     }
 }
 
-export default LoginCard
+export default ProfileCard
