@@ -1,7 +1,7 @@
-function changeLoginStatusAction (list) {
+function addBooksAction (list) {
   return {
     type: 'ADD_BOOKS',
     payload: list
   }
 }
-export default changeLoginStatusAction
+export default addBooksAction

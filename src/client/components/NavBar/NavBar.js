@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import changeLoginStatusAction from '../../actions/changeLoginStatusAction'
+import addBooksAction from '../../actions/addBooksAction'
 import { withRouter } from 'react-router'
 
 
@@ -13,6 +14,7 @@ export class NavBar extends React.Component {
                 onClick={() => {
                     localStorage.removeItem('token')
                     this.props.changeLoginStatus(false)
+                    this.props.addBooks([])
                     this.props.history.push('/')
                 }}> LogOut </a>
         } else {
@@ -47,7 +49,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        changeLoginStatus: changeLoginStatusAction
+        changeLoginStatus: changeLoginStatusAction,
+        addBooks: addBooksAction
     }, dispatch)
 }
 
