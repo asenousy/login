@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper {
+    max-width: 260px;
+    margin: auto;
+}
+.login {
+    margin: 20px;
+}

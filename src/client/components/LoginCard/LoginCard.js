@@ -3,6 +3,7 @@ import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import changeLoginStatusAction from '../../actions/changeLoginStatusAction'
+import './LoginCard.css'
 
 class LoginCard extends React.Component {
     constructor(props) {
@@ -11,11 +12,11 @@ class LoginCard extends React.Component {
         this.login = this.login.bind(this)
     }
 
-    login () {
+    login() {
         fetch('/auth', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({email: this.email.value, password: this.password.value})
+            body: JSON.stringify({ email: this.email.value, password: this.password.value })
         }).then(response => {
             if (response.status !== 200) {
                 throw 'Server not happy. Status : ' + response.statusText
@@ -40,17 +41,19 @@ class LoginCard extends React.Component {
         return <div>
             <h2>Log in</h2>
             <p>use a local account to login</p>
-            <form onSubmit={this.handleSubmit}>
-                <div>
-                    <label> Email : </label>
-                    <input type="text" name='email' placeholder='Enter Email' ref={input => this.email = input} />
-                </div>
-                <div>
-                    <label> Password: </label>
-                    <input type="password" name='password' placeholder='Enter Password' ref={input => this.password = input}/>
-                </div>
-                <input className='btn btn-primary' type="submit" value="Log in" />
-            </form>
+            <div styleName='wrapper' >
+                <form onSubmit={this.handleSubmit}>
+                    <div styleName='container'>
+                        <label> Email : </label>
+                        <input type="text" name='email' placeholder='Enter Email' ref={input => this.email = input} />
+                    </div>
+                    <div styleName='container'>
+                        <label> Password: </label>
+                        <input type="password" name='password' placeholder='Enter Password' ref={input => this.password = input} />
+                    </div>
+                    <input styleName='login' className='btn btn-primary' type="submit" value="Log in" />
+                </form>
+            </div>
         </div>
     }
 }
