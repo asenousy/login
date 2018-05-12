@@ -43,13 +43,13 @@ class LoginCard extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <label> Email : </label>
-                    <input type="text" name='email' ref={input => this.email = input} />
+                    <input type="text" name='email' placeholder='Enter Email' ref={input => this.email = input} />
                 </div>
                 <div>
                     <label> Password: </label>
-                    <input type="password" name='password' ref={input => this.password = input}/>
+                    <input type="password" name='password' placeholder='Enter Password' ref={input => this.password = input}/>
                 </div>
-                <input type="submit" value="Log in" />
+                <input className='btn btn-primary' type="submit" value="Log in" />
             </form>
         </div>
     }
