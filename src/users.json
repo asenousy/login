@@ -88,11 +88,11 @@
       "password": "SM8sW"
     },
     {
-      "phoneNumber": "240-477-3140 x39516",
-      "username": "anthony",
-      "fullName": "Anthony Klocko",
-      "email": "a",
-      "zip": "01724-7410",
-      "password": "a"
+      "phoneNumber": "123-123-1234 x123345",
+      "username": "test",
+      "fullName": "test test",
+      "email": "test@test.com",
+      "zip": "123-1224",
+      "password": "test"
     }
   ]

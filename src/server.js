@@ -18,6 +18,8 @@ app.get('/books',protected, books)
 
 app.get('*', (req, res) => res.sendFile(path.resolve(__dirname + '/../public/index.html')))
 
-app.listen(port, () => {
-    console.log('Listening on port ' + port)
-})
+if (require.main === module) {
+    app.listen(port, () => console.log('Listening on port ' + port))
+  } else {
+    module.exports = app
+  }
