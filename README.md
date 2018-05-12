@@ -29,7 +29,7 @@ The profile page is protected so user needs to be logged in first before viewing
 * Jest and Enzyme was used for front end unit test
     * It checks that the Navbar displays login or logout button appropiately based on user status
     * It does a snapshot test on the reading books table
-* Cucumber and supertest was used fot backend api endpoint test
+* Cucumber and Supertest was used for backend api endpoint test
     * it simulates a login scenario and checks a jwt token is sent back
 
 ## Improvements to be made:
