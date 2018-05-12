@@ -32,7 +32,6 @@ The profile page is protected so user needs to be logged in first before viewing
 ## Improvements to be made:
 * use https since a password is being submitted
 * store user details and password in a database with password encrypted using salted hashing
-* use React propTypes for typing safety of props
 * use Jest Snapshot Testing
 
 ## PS:

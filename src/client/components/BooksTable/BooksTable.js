@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class BooksTable extends React.Component {
     render() {
@@ -33,6 +34,11 @@ class BooksTable extends React.Component {
             </table>
         )
     }
+}
+
+BooksTable.propTypes = {
+    maxRows: PropTypes.number,
+    bookList: PropTypes.array
 }
 
 export default BooksTable
