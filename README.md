@@ -26,7 +26,7 @@ the profile page is protected so user needs to be logged in first before viewing
 * Express was used for backend api endpoints and serve bundled react app file
 
 ## Testing:
-* Jest and Enzyme was used for front end unit test
-* Cucumber and supertest was used fot backend api endpoint test
+* Jest and Enzyme was used for front end unit test, it checks that the navbar displays login or logout button appropiately based on user status
+* Cucumber and supertest was used fot backend api endpoint test, it simulates a login scenario and checks a jwt token is sent back
 
-P.S - you mentioned in task to display first 5 records for books, however the api you mentioned https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699 only returns one, so i used instead this https://www.googleapis.com/books/v1/volumes?q=isbn hope that is ok thanks
+**P.S** - you mentioned in task to display first 5 records for books, however the api you mentioned https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699 only returns one, so i used instead this https://www.googleapis.com/books/v1/volumes?q=isbn hope that is ok thanks
