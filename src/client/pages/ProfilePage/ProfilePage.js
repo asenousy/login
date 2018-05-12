@@ -5,48 +5,15 @@ import { bindActionCreators } from 'redux'
 import addBooksAction from '../../actions/addBooksAction'
 import changeLoginStatusAction from '../../actions/changeLoginStatusAction'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import BooksTable from '../../components/BooksTable/BooksTable'
 
 class ProfilePage extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.getReadingList = this.getReadingList.bind(this)
-    this.maxRows = 5
   }
 
-  diplayReadingList () {
-    const list = this.props.bookList
-      .filter(book => !book.volumeInfo.title.startsWith('ISBN'))
-      .slice(0, this.maxRows)
-      .map((book, i) => {
-        const { volumeInfo: { title, authors, publisher } } = book
-        return <tr key={i}>
-          <td>{title}</td>
-          <td>{authors.join(',')}</td>
-          <td>{publisher}</td>
-        </tr>
-      })
-
-    if (list.length === 0) {
-      return null
-    }
-
-    return (
-      <table className='table'>
-        <thead>
-          <tr>
-            <th scope="col">Book Name</th>
-            <th scope="col">Author Name</th>
-            <th scope="col">Publisher Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {list}
-        </tbody>
-      </table>
-    )
-  }
-
-  getReadingList () {
+  getReadingList() {
     fetch('/books', {
       method: 'get',
       headers: { 'Bearer': localStorage.token }
@@ -66,27 +33,28 @@ class ProfilePage extends React.Component {
       })
   }
 
-  render () {
+  render() {
+    const { bookList } = this.props
     return (
       <div styleName='card'>
         <h1>My User Details</h1>
         <ProfileCard />
         <button onClick={this.getReadingList} > Reading Preferences </button>
         <div styleName='books'>
-          {this.diplayReadingList()}
+          <BooksTable maxRows={5} bookList={bookList} />
         </div>
       </div>
     )
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     bookList: state.bookList
   }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     addBooks: addBooksAction,
     changeLoginStatus: changeLoginStatusAction
