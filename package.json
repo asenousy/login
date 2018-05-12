@@ -2,7 +2,7 @@
   "name": "example",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "npm run build && node src/server.js",
     "debug": "concurrently --kill-others \"npm run build-watch\" \"npm run start-watch\"",
