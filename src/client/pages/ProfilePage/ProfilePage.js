@@ -1,36 +1,16 @@
 import React from 'react'
 import './ProfilePage.css'
-import jwt from 'jsonwebtoken'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import addBooksAction from '../../actions/addBooksAction'
 import changeLoginStatusAction from '../../actions/changeLoginStatusAction'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 class ProfilePage extends React.Component {
   constructor (props) {
     super(props)
-    this.profile = jwt.decode(localStorage.token)
     this.getReadingList = this.getReadingList.bind(this)
     this.maxRows = 5
-  }
-
-  displayProfile () {
-    const keyMap = {
-      fullName: 'User Name',
-      zip: 'Address (ZIP CODE)',
-      email: 'Email ID'
-    }
-
-    return Object.keys(this.profile)
-      .filter(detail => detail !== 'iat' && detail !== 'exp')
-      .map((detail, index) => {
-        return (
-          <div key={detail + index}>
-            <label> {keyMap[detail] || detail}   : </label>
-            <input type="text" value={this.profile[detail]} readOnly />
-          </div>
-        )
-      })
   }
 
   diplayReadingList () {
@@ -90,7 +70,7 @@ class ProfilePage extends React.Component {
     return (
       <div styleName='card'>
         <h1>My User Details</h1>
-        {this.displayProfile()}
+        <ProfileCard />
         <button onClick={this.getReadingList} > Reading Preferences </button>
         <div styleName='books'>
           {this.diplayReadingList()}
