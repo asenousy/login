@@ -32,7 +32,8 @@ The profile page is protected so user needs to be logged in first before viewing
 ## Improvements to be made:
 * use https since a password is being submitted
 * store user details and password in a database with password encrypted using salted hashing
-* use react propTypes for typing safety of props
+* use React propTypes for typing safety of props
+* use Jest Snapshot Testing
 
 ## PS:
 you mentioned in task to display first 5 records for books, however the api you mentioned https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699 only returns one, so i used instead this https://www.googleapis.com/books/v1/volumes?q=isbn hope that is ok thanks
