@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import changeLoginStatusAction from '../../actions/changeLoginStatusAction'
-// import { withRouter } from 'react-router'
+import { withRouter } from 'react-router'
 
 
 export class NavBar extends React.Component {
@@ -51,4 +51,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar))

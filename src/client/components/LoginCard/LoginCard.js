@@ -61,4 +61,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(withRouter(LoginCard))
+export default withRouter(connect(null, mapDispatchToProps)(LoginCard))

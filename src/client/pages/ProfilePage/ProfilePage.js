@@ -5,9 +5,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import addBooksAction from '../../actions/addBooksAction'
 import changeLoginStatusAction from '../../actions/changeLoginStatusAction'
-import { withRouter } from 'react-router'
 
-class RecipesPage extends React.Component {
+class ProfilePage extends React.Component {
   constructor (props) {
     super(props)
     this.profile = jwt.decode(localStorage.token)
@@ -114,4 +113,4 @@ function mapDispatchToProps (dispatch) {
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipesPage)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)
