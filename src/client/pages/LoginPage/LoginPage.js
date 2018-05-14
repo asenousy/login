@@ -4,9 +4,11 @@ import LoginCard from '../../components/LoginCard/LoginCard'
 
 class LoginPage extends React.Component {
   render () {
+    const { location } = this.props
+    const destination = location && location.state && location.state.from && location.state.from.pathname
     return <div styleName='wrapper'>
-      {this.props.location.state ? <div className='alert alert-danger'>Sorry you need to log in first</div> : null}
-        <LoginCard />
+      {destination ? <div className='alert alert-danger'>Log in first to access {destination.slice(1).toUpperCase()} page</div> : null}
+      <LoginCard destination={destination} />
     </div>
   }
 }

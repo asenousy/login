@@ -6,8 +6,9 @@ class BooksTable extends React.Component {
         const { maxRows, bookList } = this.props
         const list = bookList.filter(book => !book.volumeInfo.title.startsWith('ISBN'))
             .slice(0, maxRows)
-            .map((book, i) => {
-                const { volumeInfo: { title = '', authors = [], publisher = '' } } = book
+            .map(({ volumeInfo }, i) => {
+                if (!volumeInfo) { return null }
+                const { title = '', authors = [], publisher = '' } = volumeInfo
                 return <tr key={i}>
                     <td>{title}</td>
                     <td>{authors.join(',')}</td>
@@ -39,6 +40,11 @@ class BooksTable extends React.Component {
 BooksTable.propTypes = {
     maxRows: PropTypes.number,
     bookList: PropTypes.array
+}
+
+BooksTable.defaultProps = {
+    maxRows: 5,
+    bookList: []
 }
 
 export default BooksTable

@@ -4,15 +4,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import changeLoginStatusAction from '../../actions/changeLoginStatusAction'
 import './LoginCard.css'
+import PropTypes from 'prop-types'
 
 class LoginCard extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.login = this.login.bind(this)
     }
 
-    login() {
+    login () {
         fetch('/auth', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -23,21 +24,22 @@ class LoginCard extends React.Component {
             }
             return response.text()
         }).then(data => {
+            const { changeLoginStatus, history, destination } = this.props
             localStorage.token = data
-            this.props.changeLoginStatus(true)
-            this.props.history.push('/profile')
+            changeLoginStatus(true)
+            history.push(destination)
         }).catch(err => {
             alert('Invalid username or password ?')
             console.log('Fetch Error: ', err)
         })
     }
 
-    handleSubmit(event) {
+    handleSubmit (event) {
         event.preventDefault()
         this.login()
     }
 
-    render() {
+    render () {
         return <div>
             <h2>Log in</h2>
             <p>use a local account to login</p>
@@ -58,7 +60,15 @@ class LoginCard extends React.Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+LoginCard.propTypes = {
+    destination: PropTypes.string
+}
+
+LoginCard.defaultProps = {
+    destination: '/profile'
+}
+
+function mapDispatchToProps (dispatch) {
     return bindActionCreators({
         changeLoginStatus: changeLoginStatusAction
     }, dispatch)
