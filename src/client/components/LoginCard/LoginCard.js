@@ -27,7 +27,7 @@ class LoginCard extends React.Component {
             const { changeLoginStatus, history, destination } = this.props
             localStorage.token = data
             changeLoginStatus(true)
-            history.push(destination)
+            history.replace(destination)
         }).catch(err => {
             alert('Invalid username or password ?')
             console.log('Fetch Error: ', err)
