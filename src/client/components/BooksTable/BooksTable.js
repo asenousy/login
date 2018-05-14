@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 class BooksTable extends React.Component {
-    render() {
+    render () {
         const { maxRows, bookList } = this.props
         const list = bookList.filter(book => !book.volumeInfo.title.startsWith('ISBN'))
             .slice(0, maxRows)
             .map((book, i) => {
-                const { volumeInfo: { title, authors, publisher } } = book
+                const { volumeInfo: { title = '', authors = [], publisher = '' } } = book
                 return <tr key={i}>
                     <td>{title}</td>
                     <td>{authors.join(',')}</td>
