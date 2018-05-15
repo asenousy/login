@@ -13,18 +13,18 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    { loader: 'style-loader' },
+                    { loader: "style-loader" },
                     {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: {
                             modules: true,
-                            localIdentName: '[local]--[hash:base64:5]'
+                            localIdentName: "[local]--[hash:base64:5]"
                         }
                     }
                 ]
             }
         ]
     },
-    // devtool: 'inline-source-map',
-    target: 'web'
+    // devtool: "inline-source-map",
+    target: "web"
 }
