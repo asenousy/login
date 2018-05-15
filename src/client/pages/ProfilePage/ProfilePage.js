@@ -8,12 +8,12 @@ import ProfileCard from '../../components/ProfileCard/ProfileCard'
 import BooksTable from '../../components/BooksTable/BooksTable'
 
 class ProfilePage extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.getReadingList = this.getReadingList.bind(this)
   }
 
-  getReadingList() {
+  getReadingList () {
     fetch('/books', {
       method: 'get',
       headers: { 'Bearer': localStorage.token }
@@ -24,7 +24,9 @@ class ProfilePage extends React.Component {
         }
         return response.json()
       })
-      .then(({ items }) => {
+      .then(({ error, list }) => {
+        if (error) { throw error }
+        const { items = [] } = list
         this.props.addBooks(items)
       }).catch(err => {
         console.log('Fetch Error: ', err)
@@ -33,7 +35,7 @@ class ProfilePage extends React.Component {
       })
   }
 
-  render() {
+  render () {
     const { bookList } = this.props
     return (
       <div styleName='card'>
@@ -48,13 +50,13 @@ class ProfilePage extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     bookList: state.bookList
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return bindActionCreators({
     addBooks: addBooksAction,
     changeLoginStatus: changeLoginStatusAction
