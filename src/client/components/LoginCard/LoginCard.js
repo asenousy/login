@@ -22,14 +22,17 @@ class LoginCard extends React.Component {
             if (response.status !== 200) {
                 throw 'Server not happy. Status : ' + response.statusText
             }
-            return response.text()
-        }).then(data => {
+            return response.json()
+        }).then(({ error, token }) => {
+            if (error) {
+                console.log(error)
+                return void alert('Invalid username or password')
+            }
             const { changeLoginStatus, history, destination } = this.props
-            localStorage.token = data
+            localStorage.token = token
             changeLoginStatus(true)
             history.replace(destination)
         }).catch(err => {
-            alert('Invalid username or password ?')
             console.log('Fetch Error: ', err)
         })
     }
