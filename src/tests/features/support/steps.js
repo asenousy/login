@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken')
 let token
 
 When('I login with test account', function (done) {
-    this.request('/auth', { email: 'test@test.com', password: 'test' }).then((response) => {
-        token = response
+    this.request('/auth', { email: 'test@test.com', password: 'test' }).then((data) => {
+        token = JSON.parse(data).token
         done()
     })
 })
