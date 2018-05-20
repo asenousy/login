@@ -7,7 +7,7 @@ import { withRouter } from 'react-router'
 
 const Routes = (routesProps) => {
   const ProtectedRoute = ({ component: Component, path }) => (
-    <Route {...path} render={props => routesProps.isLoggedIn ? <Component {...props} /> : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />} />
+    <Route path={path} render={props => routesProps.isLoggedIn ? <Component {...props} /> : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />} />
   )
 
   return (
